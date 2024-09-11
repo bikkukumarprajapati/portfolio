@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -8,8 +9,10 @@
     font-family: "Poppins", sans-serif;
 }
  :root{
-    --bg-color:#080808;
-    --second-bg-color:#131313;
+    /* --bg-color:#080808; */
+    --bg-color:#1f242d;
+    /* --second-bg-color:#131313; */
+    --second-bg-color:#323946;
     --text-color:white;
     --main-color:#00ffee;
     /* --main-color:#ffffff; */
@@ -28,6 +31,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    height: 10%;
     padding: 4rem 12% 4rem;
     background: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
@@ -63,7 +67,7 @@
     color: var(--main-color);
     border-bottom: 3px solid var(--main-color);
  }
- #menu-con{
+ #menu-icon{
     font-size: 3.6rem;
     color: var(--main-color);
     display: none;
@@ -161,7 +165,7 @@
  }
  .btn:hover{
    transform: scale(1.05);
-   box-shadow: 0 0 50px var(--main-color);
+   box-shadow: 0 0 0px var(--main-color);
 }
 .btn-group{
    display: flex;
@@ -203,12 +207,12 @@
    animation: cursor 0.6s infinite, typing 20s steps(15) infinite;
 }
 
-@key frames cursor{
+@keyframes cursor{
   to{
-   border-left: 2px solid var(--main-color);
+   border-left: 10px solid var(--main-color);
   }
 }
-@key frames words{
+@keyframes words{
    0%,
    20%{
       content: "Frontend Developer";
@@ -218,15 +222,19 @@
       content: "Web Developer";
    }
    41%,
+   60%{
+      content: "Full Stack Developer";
+   }
+   61%,
    80%{
-     content: "Full Stack Developer";
+      content: "Application Develper";
    }
    81%,
    100%{
-     content: "Application Developer";
+      content: "MERN Developer";
    }
 }
-@ke yframes typing{
+@keyframes typing{
    10%,
    15%,
    30%,
@@ -253,10 +261,53 @@
 
 }
 
+/* about section  */
+
+.about{
+   display: flex;
+   justify-content: center;
+   gap: 2rem;
+   background: var(--second-bg-color);
+}
+
+.about-img img{
+   width: 35vw;
+   /* mix-blend-mode: multiply; */
+   border-radius: 50%;
+   border: 2px solid var(--main-color);
+}
+
+
+.heading {
+   text-align: center;
+   font-size: 4.5rem;
+
+}
+.about-content{
+   margin-top: 10rem;
+   margin-left: 6rem;
+}
+.about-content h2{
+   text-align: left;
+   line-height: 1.2;
+
+}
+.about-content h3{
+   font-size: 2.6rem;
+}
+.about-content p{
+   text-align: left;
+   font-size: 1.6rem;
+   margin: 2rem 0 ;
+}
+
+
+/* project section  */
+
 .project{
    background: var(--second-bg-color);
 }
-.project .heading{
+.pro ject .heading{
    font-size: 3rem;
    color: var(--text-color);
    font-weight: 800;
@@ -266,18 +317,182 @@
    text-align: center;
    justify-content: center;
 }
-.project-box{
-   background-size: cover;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   flex-direction: column;
-}
-.project-box img{
-   width: 15rem;
-   border: 3px solid var(--main-color);
-   box-shadow: 0 0 25px var(--main-color);
+.project-container{
    display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   align-items: center;
+   gap: 2.5rem;
+}
+.project-container .project-box{
+   position: relative;
+   border-radius: 2rem;
+   box-shadow: 0 0 1rem var(--bg-color);
+   overflow: hidden;
+   display: flex;
+}
+/* .project-box{
+   background-size: cover;
+} */
+.project-box img{
+   /* width: 30rem; */
+   height: 100%;
+   width: 100%;
+   /* border: 3px solid var(--main-color); */
+   /* box-shadow: 0 0 25px var(--main-color); */
+   /* display: grid;
    grid-template-columns: repeat(3,1fr);
-   gap: 3rem;
+   gap: 3rem; */
+   /* mix-blend-mode: multiply; */
+}
+.project-box img:hover{
+   width: 100%;
+   transition: .5s ease;
+   /* cursor: pointer; */
+}
+.project-box:hover img{
+   transform: scale(1.1);
+}
+
+.project-box .project-layer{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+  background: linear-gradient(rgba(0,0,0,.1),var(--main-color)); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 0 4rem;
+  transform: translateY(100%);
+  transition: .5s ease;
+}
+.project-box:hover .project-layer{
+   transform: translateY(0);
+}
+.project-layer h4{
+   font-size: 3rem;
+}
+.project-layer p{
+   font-size: 1.6rem;
+   margin: .3rem 0 1rem;
+}
+.project-layer a{
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   width: 5rem;
+   height: 5rem;
+   background: var(--text-color);
+   border-radius: 50%;
+}
+.project-layer a i {
+   font-size: 2rem;
+   color: var(--second-bg-color);
+}
+
+/* contact us section */
+
+.contact h2 {
+   margin-bottom: 3rem;
+}
+
+.contact form {
+   max-width: 70rem;
+   margin: 1rem auto;
+   text-align: center;
+   margin-bottom: 3rem;
+}
+.contact form .input-box{
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+   width: 100%;
+   padding: 1.5rem;
+   font-size: 1.6rem;
+   color: var(--text-color);
+   background: var(--second-bg-color);
+   border-radius: .8rem;
+   margin: .7rem 0;
+}
+
+.contact form .input-box input{
+   width: 49%;
+}
+.contact form textarea {
+   resize: none;
+}
+.contact form .btn{
+   margin-top: 2rem;
+   cursor: pointer;
+}
+
+/* footer  */
+
+.footer{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 2rem 9%;
+   background: var(--second-bg-color);
+}
+.footer-text p {
+   font-size: 1.6rem;
+}
+.footer-iconTop a{
+   display: inline-flex;
+   justify-content: center;
+   align-items: center;
+   padding: .2rem;
+   background: var(--main-color);
+   border-radius: .5rem;
+   transition: .5s ease;
+}
+
+.footer-iconTop a:hover{
+   box-shadow:  0 0 1rem var(--main-color);
+}
+.footer-iconTop a i {
+   font-size: 2rem;
+   color: var(--bg-color);
+}
+
+
+/* Breakpoints */
+
+@media (max-width: 1350px) {
+   html{
+      font-size: 55%;
+   }
+   .header{
+      padding: 2rem 3%;
+   }
+   section{
+      padding: 10rem 3% 2rem;
+   }
+   .footer{
+      padding: 2rem 3%;
+   }
+}
+@media (max-width:991px) {
+   .header{
+      padding: 2rem 3%;
+   }
+   section{
+      padding: 10rem 3% 2rem;
+   }
+   .footer{
+      padding: 2rem 3%;
+   }
+}
+@media (max-width:868px) {
+   #menu-icon{
+   display: block;
+   }
 }
